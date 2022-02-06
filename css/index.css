@@ -1,0 +1,151 @@
+html {
+    box-sizing: border-box;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+  html,
+  body,
+  .board-div {
+    margin: 0;
+    padding: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+  }
+  header h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 4em;
+    margin: 0.5em 0;
+  }
+  
+  /*
+   * Styles for the board of cards
+   */
+  
+  .board {
+    width: 85%;
+    background: #9370DB;
+    padding: 1rem;
+    box-shadow: 8px 9px 26px 0 #322747;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0 auto;
+  }
+  
+  .board .card {
+    height: 3.7rem;
+    width: 3.7rem;
+    margin: 0.2rem 0.2rem;
+    background: #D3D3D3;
+    font-size: 0;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 5px 2px 3px 0 #D3D3D3;
+  }
+  
+
+  .progress {
+    width: 660px;
+    margin: 20px auto;
+  }
+
+  .board , .board .card , .card-timer , .card-restart , td {
+    border-radius: 25px 10px 25px 10px;
+  } 
+
+
+
+
+
+
+  
+  /****** Media queries
+  ***************************/
+  
+  @media (max-width: 567px) {
+    body .container-fluid {
+        width: 520px;
+    }
+
+    .board {
+      width: 95%;
+    }
+  
+    .board .card {
+      height: 70px;
+      width: 70px;
+    }
+
+    .progress {
+        width: 495px;
+      }
+    
+  }
+  
+  /* For Tablets and larger screens
+  ****************/
+  
+  @media (min-width: 568px) {
+  
+    .board {
+        width: 660px;
+        height: 508px;
+    }
+  
+    .board .card {
+      height: 90px;
+      width: 90px;
+    }
+  
+  }
+
+.card-timer , .card-restart {
+    margin: 0 auto 5px;
+    padding: 0px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 10px 10px -5px #909090;
+    color: #fff;
+    background: #333;
+    cursor: pointer;
+}
+
+#countdown, #button-restart {
+  font-size: 50px;
+  text-shadow: 3px 3px 3px #141214;
+  font-weight: bold;
+}
+
+.ranking-table {
+  margin: 5px 0 5px 0;
+  text-align: center;
+}
+
+.ranking-table .header{
+  text-decoration: none;
+  margin: 10px auto;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+#tableauBody .top-pos , #tableauBody .mid-pos , #tableauBody .bot-pos {
+  color: #000000;
+}
+
+#tableauBody .top-pos {
+  background-color: #77ff21;
+}
+
+#tableauBody .mid-pos {
+  background-color: #ffc107;
+}
+
+#tableauBody .bot-pos {
+  background-color: #dc3545;
+}
