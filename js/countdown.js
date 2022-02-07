@@ -8,13 +8,13 @@ const countdown = {
     init: () => {
         console.log('countdown');
 
-        countdown.startTimer(countdown.fixedSecs);
+        countdown.startTimer();
         
     },
 
     startTimer : function(secs) {
-        countdown.timeInSecs = parseInt(secs);
-        countdown.fixedSecs = parseInt(secs);
+        countdown.timeInSecs = parseInt(countdown.fixedSecs);
+        countdown.fixedSecs = parseInt(countdown.fixedSecs);
         countdown.timer = setInterval("countdown.timerInitialize()", 1000); 
     },
 

@@ -10,6 +10,8 @@ const launcher = {
     init : () => {
         console.log("launch");
         launcher.startGame();
+
+        document.querySelector(".card-restart").addEventListener("click" , launcher.playAgain);
     },
 
     startGame: function() {
@@ -51,5 +53,12 @@ const launcher = {
               cards[randomIndex] = temporaryValue;
           }
           return cards;
+      },
+
+      playAgain : function () {
+        //app.moves = 0;
+        clearInterval(countdown.timer);
+        document.getElementById("countdown").innerHTML = countdown.timeLeft;
+        launcher.startGame();
       },
 }
