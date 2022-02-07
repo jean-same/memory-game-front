@@ -75,6 +75,7 @@ const cardsState = {
          */
         cardsState.openedCards[0].classList.add("unmatched");
         cardsState.openedCards[1].classList.add("unmatched");
+        cardsState.disable();
         /**
          * Je fais un setTimeout d'1 seconde avant d'enlever l'ensemble
          * des classes sur les 2 cards
@@ -82,7 +83,22 @@ const cardsState = {
         setTimeout(function () {
         cardsState.openedCards[0].classList.remove("show", "open", "no-event", "unmatched");
         cardsState.openedCards[1].classList.remove("show", "open", "no-event", "unmatched");
+        cardsState.enable();
           cardsState.openedCards = [];
         }, 1000);
+      },
+
+      disable : function() {
+        [].filter.call(launcher.cards, function (card) {
+          card.classList.add("disabled");
+        });
+      },
+
+      enable : function() {
+        [].filter.call(launcher.cards, function (card) {     
+          if(!card.classList.contains("match") ) {
+            card.classList.remove("disabled");
+          }
+        });
       },
 }
