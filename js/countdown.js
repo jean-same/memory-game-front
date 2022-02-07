@@ -3,7 +3,7 @@ const countdown = {
     timeInSecs : null,
     timer : null,
     timeLeft : null,
-    fixedSecs : 10,
+    fixedSecs : 300,
 
     init: () => {
         console.log('countdown');

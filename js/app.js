@@ -4,6 +4,7 @@ const app = {
         console.log('init');
         launcher.init();
         cardsState.init();
+        ajax.init();
       },
 
 
