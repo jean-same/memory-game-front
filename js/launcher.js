@@ -13,6 +13,7 @@ const launcher = {
     },
 
     startGame: function() {
+        cardsState.openedCards = [];
 
         // Je melange les cards aleatoirement avec la methode shuffleCard
         cards = launcher.shuffleCard(launcher.cards);
@@ -24,6 +25,7 @@ const launcher = {
             // J'ajoute les cards prealablement melangées
               launcher.board.appendChild(item);
             });
+            cards[i].classList.remove("show", "open", "match", "disabled");
           }
   
     },

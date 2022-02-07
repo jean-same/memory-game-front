@@ -33,5 +33,56 @@ const cardsState = {
          *  - Je fais un push pour ajouter la card courante dans le tableau des cards ouvertes
          */
         cardsState.openedCards.push(this);
+
+        let cardOpenedArrayLength = cardsState.openedCards.length;
+
+        /**
+         * Si 2 cards ont été ouvertes je vais verifier si elles correspondent ou pas
+         */
+        if (cardOpenedArrayLength === 2) {
+            // Je compare le nom des 2 icones 
+            /**
+             * Si oui, je fais appel à ma methode matched
+             * Si non je fais appel à ma methode unmatched
+             */
+          if (cardsState.openedCards[0].dataset.icon === cardsState.openedCards[1].dataset.icon ) {
+            cardsState.matched();
+            console.log("matched")
+          } else {
+            cardsState.unmatched();
+            console.log("unmatched")
+          }
+        }
     },
+
+    matched : function() {
+        /**
+         * Je rejoute la classe "match" et je desactive les cards
+         * Ensuite j'enlève les classes "show", "open"
+         * Et je vide le tableau des cards ouvertes
+         * 
+         */
+        cardsState.openedCards[0].classList.add("match", "disabled");
+        cardsState.openedCards[1].classList.add("match", "disabled");
+        cardsState.openedCards[0].classList.remove("show", "open", "no-event");
+        cardsState.openedCards[1].classList.remove("show", "open", "no-event");
+        cardsState.openedCards = [];
+      },
+
+    unmatched : function() {
+        /**
+         * Je rajoute la classe "unmatched sur les 2 cards"
+         */
+        cardsState.openedCards[0].classList.add("unmatched");
+        cardsState.openedCards[1].classList.add("unmatched");
+        /**
+         * Je fais un setTimeout d'1 seconde avant d'enlever l'ensemble
+         * des classes sur les 2 cards
+         */
+        setTimeout(function () {
+        cardsState.openedCards[0].classList.remove("show", "open", "no-event", "unmatched");
+        cardsState.openedCards[1].classList.remove("show", "open", "no-event", "unmatched");
+          cardsState.openedCards = [];
+        }, 1000);
+      },
 }

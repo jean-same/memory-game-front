@@ -76,6 +76,18 @@ html {
     opacity: 0.9;
   }
 
+  .board .card.match {
+    cursor: default;
+    background: #198754;
+    font-size: 73px;
+    backface-visibility: visible !important;
+  }
+  
+  .board .card.unmatched {
+    backface-visibility: visible !important;
+    background: #dc3545;
+  }
+
   
 
 
