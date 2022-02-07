@@ -56,9 +56,11 @@ const launcher = {
       },
 
       playAgain : function () {
-        //app.moves = 0;
+        cardsState.moves = 0;
+        cardsState.numberOfMatchedCard = 0;
         clearInterval(countdown.timer);
         document.getElementById("countdown").innerHTML = countdown.timeLeft;
         launcher.startGame();
+        alert.restartAlert();
       },
 }

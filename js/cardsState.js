@@ -5,6 +5,8 @@ const cardsState = {
 
     moves : null,
 
+    numberOfMatchedCard : 0,
+
     init : () => {
         console.log("State");
 
@@ -51,6 +53,7 @@ const cardsState = {
              */
           if (cardsState.openedCards[0].dataset.icon === cardsState.openedCards[1].dataset.icon ) {
             cardsState.matched();
+            cardsState.numberOfMatchedCard += 2;
             console.log("matched")
           } else {
             cardsState.unmatched();

@@ -3,7 +3,7 @@ const countdown = {
     timeInSecs : null,
     timer : null,
     timeLeft : null,
-    fixedSecs : 300,
+    fixedSecs : 10,
 
     init: () => {
         console.log('countdown');
@@ -30,6 +30,7 @@ const countdown = {
         if (seconds > 0) {
             countdown.timeInSecs--;
             countdown.displayFormat(seconds);
+            gameDecision.victory();
                       
             cardTimer.style.background="#198754";
 
@@ -44,7 +45,7 @@ const countdown = {
             }
         }
         else if(seconds == 0) {
-
+            gameDecision.defeat();
         }
       
         
