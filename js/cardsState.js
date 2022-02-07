@@ -3,6 +3,8 @@ const cardsState = {
     // Propriete qui sera un tableau vide au moment de son initialisation
     openedCards : [],
 
+    moves : null,
+
     init : () => {
         console.log("State");
 
@@ -40,6 +42,8 @@ const cardsState = {
          * Si 2 cards ont été ouvertes je vais verifier si elles correspondent ou pas
          */
         if (cardOpenedArrayLength === 2) {
+
+            cardsState.moveCounter();
             // Je compare le nom des 2 icones 
             /**
              * Si oui, je fais appel à ma methode matched
@@ -88,17 +92,39 @@ const cardsState = {
         }, 1000);
       },
 
+      /**
+       * Cette methode permet de desactiver les autres cards quand 2 cards unmatched
+       * sont encore affichées
+       */
       disable : function() {
+          /**
+           * Pour chaque cards j'ajoute la classe disabled
+           */
         [].filter.call(launcher.cards, function (card) {
           card.classList.add("disabled");
         });
       },
 
+      /**
+       * Cette methode permet de reactiver toutes les cards(sauf les cards contenant la classe match) quand aucune cards unmatched n'est affichée
+       */
       enable : function() {
         [].filter.call(launcher.cards, function (card) {     
           if(!card.classList.contains("match") ) {
             card.classList.remove("disabled");
           }
         });
+      },
+
+      /**
+       * Cette methode est appelée quand le tableau contenant les cards ouvertes contient 2 cards
+       */
+      moveCounter : function () {
+          // Incrementation de la propriete moves
+        cardsState.moves++;
+        // Si la propriete move est egal à 1 le compteur de temps est lancé
+        if (cardsState.moves == 1) {
+          countdown.init();
+        }
       },
 }
