@@ -39,6 +39,9 @@ html {
   }
   
   .board .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 3.7rem;
     width: 3.7rem;
     margin: 0.2rem 0.2rem;
@@ -58,6 +61,22 @@ html {
   .board , .board .card , .card-timer , .card-restart , td {
     border-radius: 25px 10px 25px 10px;
   } 
+
+  .board .card.open {
+    background: #0d6efd;
+    backface-visibility: visible !important;
+  }
+
+  .board .card.show {
+    font-size: 73px;
+  }
+
+  .board .card.disabled {
+    pointer-events: none;
+    opacity: 0.9;
+  }
+
+  
 
 
 
