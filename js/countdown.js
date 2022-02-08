@@ -3,7 +3,7 @@ const countdown = {
     timeInSecs : null,
     timer : null,
     timeLeft : null,
-    fixedSecs : 300,
+    fixedSecs : 20,
 
     init: () => {
         console.log('countdown');
@@ -66,15 +66,23 @@ const countdown = {
 
         // Ajout dynamique du pourcentage dans la barre de progression
         progressBar.style.width = countdown.percentage() + "%"
+        progressBar.classList.remove("bg-warning" , "bg-danger");
+        progressBar.classList.add("bg-success");
 
         /**
-         * conditions ternanire pour changer la couleur de fond de la barre de progression
-         * c'est l'equivalent de  => if(percentage < 50) {
-            progressBar.classList.replace("bg-success" , "bg-warning")
+         * conditions pour changer la couleur de fond de la barre de progression
         }
          */
-        countdown.percentage() < 50 ? progressBar.classList.replace("bg-success" , "bg-warning") : "" ;
-        countdown.percentage() < 20 ? progressBar.classList.replace("bg-warning" , "bg-danger") : "" ;
+
+        if(countdown.percentage() < 50 ) {
+            progressBar.classList.remove("bg-success" , "bg-danger");
+            progressBar.classList.add("bg-warning");
+        } 
+        
+        if(countdown.percentage() < 20 ) {
+            progressBar.classList.remove("bg-success" , "bg-warning");
+            progressBar.classList.add("bg-danger");
+        }  
 
     },
 
