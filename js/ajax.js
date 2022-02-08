@@ -24,13 +24,20 @@ const ajax = {
         .then(function(response) {
             return response.json()
         })
-
+        // Je recupere le resultat en format JSON
         .then(function(responseJSON){
+            // Je recupere le tableau grace à son ID
             let tableBody = document.querySelector("#tableauBody");
             let scores = '';
             let i = 1;
             let classToUse = ""
 
+            /**
+             * Pour chaque score recupéré en seconde, je fais un calcul pour avoir le temps exact que l'utilisateur avait mis pour gagner
+             * Je remplis la variable classToUse en fonction de la valeur de i
+             * Ensuite je rajoute les tr pre-rempli dans la variable score
+             * Et pour finir, je rajoute cette variable score dans le tableau
+             */
 
             for(let currentScore of responseJSON) {
                 let timeUsed = countdown.fixedSecs - currentScore.nbSeconds;
@@ -56,19 +63,25 @@ const ajax = {
             "nbSeconds" : countdown.timeInSecs
         };
 
+        // Je prépare les entêtes HTTP (headers) de la requête
+        // afin de spécifier que les données sont en JSON
         const httpHeaders = new Headers();
             httpHeaders.append("Content-Type", "application/json");
 
         let fetchOptions = {
+            // c'est une création donc j'utilise POST
             method: 'POST',
             mode: 'no-cors',
             cache: 'no-cache',
+            // J'ajoute les headers dans les options
             headers: httpHeaders,
+            // J'ajoute les données, encodées en JSON, dans le corps de la requête
             body: JSON.stringify(data)
         };
 
         fetch(ajax.baseUri + "newscore" , fetchOptions)
 
     },
+
 
 }

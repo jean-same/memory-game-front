@@ -1,5 +1,9 @@
 const alert = {
 
+    // J'ai utilisé 2 librairies pour gerer les alerts
+    // https://sweetalert2.github.io/
+    // https://stephanwagner.me/jBox
+
     restartAlert : () => {
         return result = new jBox('Notice', {
             content: 'Jeu redemarrer',
@@ -8,20 +12,10 @@ const alert = {
           });
     },
 
-    restartConfirmation : () => {
-        return result =  Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Game restarted ',
-            showConfirmButton: false,
-            timer: 1000
-        })
-    },
-
-    victory : (timeLeft) => {
+    victory : (timeLeft , bestScoreString = "") => {
         return result = Swal.fire(
-            'Congratulations 🎉🎉🎉 !',
-            'You won that game with ' + timeLeft + ' time left 💪💪',
+            'Felicitations 🎉🎉🎉 !',
+            'Vous avez gagné cette partie avec ' + timeLeft + ' minutes restante 💪💪 <br> ' + bestScoreString,
             'success'
           )
     },
