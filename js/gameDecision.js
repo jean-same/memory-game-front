@@ -1,7 +1,7 @@
 const gameDecision = {
 
     victory : function () {
-        if (cardsState.numberOfMatchedCard == 2) {
+        if (cardsState.numberOfMatchedCard == 0) {
           
           clearInterval(countdown.timer);
           alert.victory(countdown.timeLeft);

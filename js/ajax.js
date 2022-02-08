@@ -53,7 +53,7 @@ const ajax = {
 
     addNewScore : () => {
         const data = {
-            "nbSeconds" : countdown.timeLeft
+            "nbSeconds" : countdown.timeInSecs
         };
 
         const httpHeaders = new Headers();
@@ -68,10 +68,7 @@ const ajax = {
         };
 
         fetch(ajax.baseUri + "newscore" , fetchOptions)
-        .then(function(response) {
-            console.log(response)
-        })
-        
 
     },
+
 }
