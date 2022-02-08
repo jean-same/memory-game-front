@@ -49,7 +49,7 @@ html {
     font-size: 0;
     color: #ffffff;
     cursor: pointer;
-    box-shadow: 5px 2px 3px 0 #D3D3D3;
+    box-shadow: 3px 1px 3px 0 #D3D3D3;
   }
   
 
@@ -65,6 +65,7 @@ html {
   .board .card.open {
     background: #0d6efd;
     backface-visibility: visible !important;
+    animation: bounce 0.5s ease infinite ;
   }
 
   .board .card.show {
@@ -77,6 +78,7 @@ html {
   }
 
   .board .card.match {
+    animation: rotate 1s linear;
     cursor: default;
     background: #198754;
     font-size: 73px;
@@ -84,6 +86,8 @@ html {
   }
   
   .board .card.unmatched {
+    transform-style: preserve-3d;
+    animation: flip 0.5s linear forwards ;
     backface-visibility: visible !important;
     background: #dc3545;
   }
@@ -113,6 +117,11 @@ html {
       width: 70px;
     }
 
+    .board .card.show , .board .card.match {
+      font-size: 50px;
+    }
+  
+
     .progress {
         width: 495px;
       }
@@ -135,6 +144,35 @@ html {
     }
   
   }
+
+  .hithere {
+    animation: bounce 1s ease infinite;
+  }
+  @keyframes bounce {
+    30% { transform: scale(1.2); }
+    40%, 60% { transform: rotate(-20deg) scale(1.2); }
+    50% { transform: rotate(20deg) scale(1.2); }
+    70% { transform: rotate(0deg) scale(1.2); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes flip {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  }
+
+  @keyframes rotate {
+		from {
+				transform: rotate(0deg);
+		}
+		to {
+				transform: rotate(359deg);
+		}
+}
 
 .card-timer , .card-restart {
     margin: 0 auto 5px;
