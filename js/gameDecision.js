@@ -1,10 +1,11 @@
 const gameDecision = {
 
     victory : function () {
-        if (cardsState.numberOfMatchedCard == 30) {
+        if (cardsState.numberOfMatchedCard == 2) {
           
           clearInterval(countdown.timer);
           alert.victory(countdown.timeLeft);
+          ajax.addNewScore();
           gameDecision.disableAllCards();
         }
       },

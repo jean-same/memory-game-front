@@ -50,4 +50,28 @@ const ajax = {
         } )
 
     },
+
+    addNewScore : () => {
+        const data = {
+            "nbSeconds" : countdown.timeLeft
+        };
+
+        const httpHeaders = new Headers();
+            httpHeaders.append("Content-Type", "application/json");
+
+        let fetchOptions = {
+            method: 'POST',
+            mode: 'no-cors',
+            cache: 'no-cache',
+            headers: httpHeaders,
+            body: JSON.stringify(data)
+        };
+
+        fetch(ajax.baseUri + "newscore" , fetchOptions)
+        .then(function(response) {
+            console.log(response)
+        })
+        
+
+    },
 }
