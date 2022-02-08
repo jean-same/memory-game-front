@@ -2,6 +2,6 @@
 
 1- Cloner ce dépôt
 
-2- Cloner ou télécharger le dépôt back “<https://github.com/jean-same/memory-game-back-.git>” , “<https://github.com/jean-same/memory-game-back->” et suivre les étapes
+2- Cloner ou télécharger le dépôt back “<https://github.com/jean-same/memory-game-back-.git>” , “<https://github.com/jean-same/memory-game-back->” suivez les étapes
 
 3- Assurez-vous que le port renseignez dans le fichier ajax.js est le même que le port de votre serveur php
